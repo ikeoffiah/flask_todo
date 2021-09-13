@@ -1,6 +1,7 @@
 from flask import Flask, render_template, url_for, request, redirect
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
+import os
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///test.db'
@@ -65,4 +66,4 @@ def update(id):
 
 if __name__ == "__main__":
     app.run(debug=True)
-    port = "https://todoapp-tenece.herokuapp.com/"
+    port = int(os.environ.get('PORT', 33507))
