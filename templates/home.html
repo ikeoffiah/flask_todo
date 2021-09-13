@@ -1,0 +1,48 @@
+{% extends 'base.html ' %}
+
+{% block content %}
+<div class="content">
+    <h1>
+        TODO LIST
+    </h1>
+    {% if tasks|length < 1 %}
+    <h4 class="text-info">You no tasks created yet!!. Add task below.</h4>
+    {% else %}
+
+{% if tasks %}
+    <table  class="table table-striped">
+        <thead class="thead-dark">
+        <tr>
+            <th scope="col">Task</th>
+            <th scope="col">Date Added</th>
+            <th scope="col">Actions</th>
+        </tr>
+        </thead>
+        {% endif %}
+        {% endif %}
+{% for task in tasks %}
+        <tr>
+            <td>{{task.content}}</td>
+            <td>{{task.date.date()}}</td>
+            <td>
+                <a href="/delete/{{task.id}}">Delete</a>
+                <br>
+                <a href="/update/{{task.id}}">Update</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+    <div class="ofo">
+            <form action="/" method="POST">
+                <div class="form-group">
+                <label for="content">Add Task</label>
+        <input type="text" name="content" id="content" class="form-control" placeholder="Enter Task Here">
+                    </div>
+                <button type="submit" class="btn btn-outline-primary">Add Task</button>
+    </form>
+    </div>
+
+
+</div>
+
+{% endblock %}

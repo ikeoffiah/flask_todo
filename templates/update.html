@@ -1,0 +1,18 @@
+
+{% extends 'base.html ' %}
+
+{% block content %}
+<div class="content">
+
+<div class="ofo">
+    <form action="/update/{{task.id}}" method="POST">
+         <div class="form-group">
+                <label for="content">Update Task</label>
+        <input type="text" name="content" id="content" class="form-control" value="{{task.content}}">
+         </div>
+       <button type="submit" class="btn btn-primary">Update</button>
+    </form>
+</div>
+</div>
+
+{% endblock %}
