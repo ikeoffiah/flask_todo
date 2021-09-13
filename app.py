@@ -14,7 +14,7 @@ class Todo(db.Model):
     date = db.Column(db.DateTime, default=datetime.now())
 
     def __repr__(self):
-        return '<Task %r>' %self.id
+        return '<Task %r>' % self.id
 
 @app.route("/", methods=["POST", "GET"])
 def home():
